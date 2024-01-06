@@ -8,6 +8,6 @@ export const mutationLogin = async () => {
             },
         }
     )
-    console.log(res)
+
     return res.json();
 }

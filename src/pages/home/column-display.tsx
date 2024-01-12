@@ -28,12 +28,14 @@ export const ColumnDisplay = (props: Props) => {
         {data.map((displayData: DisplayData) => (
             <Grid.Column key={displayData.id}>
                 <Card.Group>
-                    {/* <Link to={ }> */}
-                    <Card fluid image={`https://image.tmdb.org/t/p/original/${displayData.poster_path}`}
-                        header={displayType === DisplayType.Movies ? displayData.title : displayData.name}
-                        meta={`Release Date: ${displayData.release_date} | Rating: ${displayData.vote_average}`}
-                        description={displayData.overview.slice(0, 350) + "..."} />
-                    {/* </Link> */}
+                    <Link to={`/${displayType === DisplayType.Movies ? "movie" : "tvshow"
+                        }/${displayData.id}`}
+                    >
+                        <Card fluid image={`https://image.tmdb.org/t/p/original/${displayData.poster_path}`}
+                            header={displayType === DisplayType.Movies ? displayData.title : displayData.name}
+                            meta={`Release Date: ${displayData.release_date} | Rating: ${displayData.vote_average}`}
+                            description={displayData.overview.slice(0, 350) + "..."} />
+                    </Link>
                 </Card.Group>
 
             </Grid.Column>
